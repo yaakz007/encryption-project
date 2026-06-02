@@ -1,0 +1,1 @@
+#Funções de uso dos arquivos de histórico, para salvar e ler as mensagens criptografadas e descriptografadas.
