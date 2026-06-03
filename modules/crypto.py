@@ -105,23 +105,28 @@ def vigenere_decrypt(text, key):
     return result
 
 def encrypt_menu(user):
-    print("1 - Caesar")
-    print("2 - Vigenère")
-    print("3 - ROT13")
+    utils.clear()
+    print(utils.cor(utils.linha(50), 'cyan'))
+    print(utils.cor("ENCRYPT".center(50), 'cyan'))
+    print(utils.cor(utils.linha(50), 'cyan'))
+    print(utils.cor(menu.format_option("Caesar", "[1]"), 'yellow'))
+    print(utils.cor(menu.format_option("Vigenère", "[2]"), 'yellow'))
+    print(utils.cor(menu.format_option("ROT13", "[3]"), 'yellow'))
+    print(utils.cor(utils.linha(50), 'cyan'))
+    option = menu.option("Choose an option: ")
+    utils.clear()
 
-    option = menu.option("Choose: ")
-
-    text = input("Text: ")
+    text = input(utils.cor("Text: ", 'yellow'))
 
     if option == 1:
-        key = int(input("Key: "))
+        key = int(input(utils.cor("Key (number): ", 'yellow')))
         result = caesar_encrypt(text, key)
 
         history.add_log(user, "caesar", "encrypt", text, result, key)
         print(result)
 
     elif option == 2:
-        key = input("Key: ")
+        key = input(utils.cor("Key (text): ", 'yellow'))
         result = vigenere_encrypt(text, key)
 
         history.add_log(user, "vigenere", "encrypt", text, result, key)
@@ -133,26 +138,31 @@ def encrypt_menu(user):
         history.add_log(user, "rot13", "encrypt", text, result)
         print(result)
 
-    input("Enter...")
+    input(utils.cor("Enter...", 'cyan'))
 
 def decrypt_menu(user):
-    print("1 - Caesar")
-    print("2 - Vigenère")
-    print("3 - ROT13")
+    utils.clear()
+    print(utils.cor(utils.linha(50), 'cyan'))
+    print(utils.cor("DECRYPT".center(50), 'cyan'))
+    print(utils.cor(utils.linha(50), 'cyan'))
+    print(utils.cor(menu.format_option("Caesar", "[1]"), 'yellow'))
+    print(utils.cor(menu.format_option("Vigenère", "[2]"), 'yellow'))
+    print(utils.cor(menu.format_option("ROT13", "[3]"), 'yellow'))
+    print(utils.cor(utils.linha(50), 'cyan'))
+    option = menu.option("Choose an option: ")
+    utils.clear()
 
-    option = menu.option("Choose: ")
-
-    text = input("Text: ")
+    text = input(utils.cor("Text: ", 'yellow'))
 
     if option == 1:
-        key = int(input("Key: "))
+        key = int(input(utils.cor("Key (number): ", 'yellow')))
         result = caesar_decrypt(text, key)
 
         history.add_log(user, "caesar", "decrypt", text, result, key)
         print(result)
 
     elif option == 2:
-        key = input("Key: ")
+        key = input(utils.cor("Key (text): ", 'yellow'))
         result = vigenere_decrypt(text, key)
 
         history.add_log(user, "vigenere", "decrypt", text, result, key)
@@ -164,27 +174,34 @@ def decrypt_menu(user):
         history.add_log(user, "rot13", "decrypt", text, result)
         print(result)
 
-    input("Enter...")
+    input(utils.cor("Enter...", 'cyan'))
 
 def crypto_menu(user):
     while True:
         utils.clear()
-
-        print(utils.cor("1 - Encrypt", 'yellow'))
-        print(utils.cor("2 - Decrypt", 'yellow'))
-        print(utils.cor("3 - History", 'yellow'))
-        print(utils.cor("4 - Back", 'yellow'))
-
-        option = menu.option("Choose: ")
+        print(utils.cor(utils.linha(50), 'cyan'))
+        print(utils.cor("CRYPTO MENU".center(50), 'cyan'))
+        print(utils.cor(utils.linha(50), 'cyan'))
+        print(utils.cor(menu.format_option("Encrypt", "[1]"), 'yellow'))
+        print(utils.cor(menu.format_option("Decrypt", "[2]" ), 'yellow'))
+        print(utils.cor(menu.format_option("History", "[3]"), 'yellow'))
+        print(utils.cor(menu.format_option("Back", "[4]" ), 'yellow'))
+        print(utils.cor(utils.linha(50), 'cyan'))
+        option = menu.option("Choose an option: ")
 
         if option == 1:
+            utils.clear()
             encrypt_menu(user)
 
         elif option == 2:
+            utils.clear()
             decrypt_menu(user)
 
         elif option == 3:
             history.show_logs()
+            input(utils.cor("\nPress Enter to continue...", 'cyan'))
 
         elif option == 4:
+            utils.clear()
+            print(utils.cor("Returning...", "cyan"))
             break

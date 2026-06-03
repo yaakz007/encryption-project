@@ -3,6 +3,7 @@
 from modules import utils 
 from time import sleep
 from pathlib import Path
+from datetime import datetime
 import json
 
 BASE_DIR = Path(__file__).parent.parent
@@ -30,7 +31,8 @@ def add_log(user, cipher, operation, input_text, output_text, key=None):
         "operation": operation,
         "input": input_text,
         "output": output_text,
-        "key": key
+        "key": key,
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
     logs.append(new_log)
@@ -40,14 +42,15 @@ def show_logs():
     logs = load_logs()
 
     if not logs:
-        print('Nenhum log encontrado.')
+        print(utils.cor("No logs found.", "red"))
         return
     
     for log in logs:
-        print(utils.linha(35))
-        print(f'Usuário: {log["user"]}')
-        print(f'Cifra: {log["cipher"]}')
-        print(f'Operação: {log["operation"]}')
-        print(f'Entrada de dados: {log["input"]}')
-        print(f'Saída de dados: {log["output"]}')
-        print(f'Chave: {log["key"]}')
+        print(utils.cor(utils.linha(35), 'cyan'))
+        print(utils.cor('User: ', 'magenta') + utils.cor(str(log["user"]), 'white'))
+        print(utils.cor('Cipher: ', 'magenta') + utils.cor(str(log["cipher"]), 'white'))
+        print(utils.cor('Operation: ', 'magenta') + utils.cor(str(log["operation"]), 'white'))
+        print(utils.cor('Input: ', 'magenta') + utils.cor(str(log["input"]), 'white'))
+        print(utils.cor('Output: ', 'magenta') + utils.cor(str(log["output"]), 'white'))
+        print(utils.cor('Key: ', 'magenta') + utils.cor(str(log["key"]), 'white'))
+        print(utils.cor('Date: ', 'magenta') + utils.cor(str(log.get("timestamp", "N/A")), 'white'))
