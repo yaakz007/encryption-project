@@ -51,4 +51,4 @@ def cor(msg, nome_cor, fundo=None):
     return (codigo_fundo + codigo + str(msg) + RESET)
 
 def linha(tam):
-    return '-' * tam
+    return '=' * tam

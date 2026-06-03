@@ -44,7 +44,7 @@ def show_logs():
         return
     
     for log in logs:
-        utils.linha(35)
+        print(utils.linha(35))
         print(f'Usuário: {log["user"]}')
         print(f'Cifra: {log["cipher"]}')
         print(f'Operação: {log["operation"]}')

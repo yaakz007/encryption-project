@@ -1,7 +1,15 @@
 from modules import auth, crypto, history, utils, menu
 
+menu.menu()
+
+
 while True:
-    #crypto.menu()
+    user = auth.login_user()
+
+    if user:
+        print(f'Seja bem vindo, {user}.')
+    else:
+        exit()
 
     opcao = menu.option('Digite sua opção: ')
 
