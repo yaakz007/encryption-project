@@ -1,5 +1,8 @@
 #Cores e outras funções de utilidade geral para o projeto
+import os
 
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 def cor(msg, nome_cor, fundo=None):
     cores = {
         "red": "\033[31m",

@@ -1,17 +1,18 @@
 from modules import auth, crypto, history, utils, menu
 
-menu.menu()
-
-
 while True:
-    user = auth.login_user()
+    menu.menu()
+    opcao = menu.option("Escolha: ")
 
-    if user:
-        print(f'Seja bem vindo, {user}.')
-    else:
-        exit()
+    if opcao == 1:
+        utils.clear()
+        auth.register_user()
+        input("\nEnter to continue...")
 
-    opcao = menu.option('Digite sua opção: ')
+    elif opcao == 2:
+        utils.clear()
+        user = auth.login_user()
+        input("\nEnter to continue...")
 
-    if opcao == 3:
-        history.show_logs()
+    elif opcao == 3:
+        break
