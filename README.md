@@ -1,6 +1,6 @@
 # encryption-project
  A Python encryption project built while learning programming.
- 🔐 Encryption Terminal
+🔐 Encryption Terminal
 A modular, terminal-based encryption system built in Python. Supports user authentication, classical cipher operations (Caesar, Vigenère, ROT13), and persistent operation history — all through a clean, color-coded CLI interface.
 
 Features
