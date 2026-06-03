@@ -40,7 +40,7 @@ Each module imports only what it needs, keeping coupling low and making individu
 
 Installation
 No external dependencies are required. Python 3.10 or later is sufficient.
-bashgit clone https://github.com/your-username/encryption-terminal.git
+bashgit clone https://github.com/yaakz007/encryption-terminal.git
 cd encryption-terminal
 python main.py
 
